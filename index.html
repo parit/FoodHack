@@ -28,60 +28,127 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/jquery.css">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/jqueryLocal.css">
+        <!--<link rel="stylesheet" type="text/css" href="css/index.css">-->
+        <link rel="stylesheet" type="text/css" href="css/indexLocal.css">
         <title>Hello World</title>
     </head>
     <body>
         <body>
-        <div id="main-page" data-role="page">
-            <div data-role="header" class="ui-bar">
-                <a href="" data-role="button" style="float:left" class="ui-link ui-btn ui-btn-a ui-icon-camera ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
-                <a href="" data-role="button" style="float:left" class="ui-link ui-btn ui-btn-a ui-icon-user ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
-                <a href="" data-role="button" style="float:right" class="ui-link ui-btn ui-btn-a ui-icon-bullets ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
-            </div>
-            <div role="main" class="ui-content">
-                <div id="intro" style="min-height:300px; border:1px dotted black">
-                    <div class="imageContainer"/>
-                    <div class="initial">
-                        <title></title>
-
-                    </div>
-                    <div id="extra">
-                    </div>
+            <div class="page" id="main-page" data-role="page">
+                <div data-role="header" class="ui-bar">
+                 <div data-role="navbar">
+                    <ul>
+                        <li><a href="" id="cameraButton" data-role="button"  class="btn-round "><img src="images/camera.png"></a></li>
+                        <li><a href="" data-role="button" style="display:inline-block" class="btn-round btn-current"><img src="images/search.png" style="width: 26px;padding: 3px;;"></a></li>
+                        <li><a href="" data-role="button" id="listbutton"  style="float:right" class="btn-round "><img src="images/list.png" style="width: 25px; padding: 4px;"></a></li>
+                    </ul>
                 </div>
-                
-                <!--<button id="camera-receipt" class="ui-btn ui-corner-all">Take picture</button>-->
+                </div>
+                <!--<div data-role="header" class="ui-bar">
+                    <a href="" id="cameraButton" data-role="button" style="float:left" class="btn-round "><img src="images/camera.png"></a>
+                    <a href="" data-role="button" style="display:inline-block" class="btn-round btn-current"><img src="images/search.png" style="width: 26px;padding: 3px;;"></a>
+                    <a href="" data-role="button" id="listbutton"  style="float:right" class="btn-round "><img src="images/list.png" style="width: 25px; padding: 4px;"></a>
+                </div>-->
+                <div role="main" class="ui-content">
+                    <input type="hidden" id="currentUser" value="2"/>
+                    <div id="intro"></div>
+                </div>     
+                <div id="footer" data-role="footer" class="ui-bar footer">
+                    
+                </div>
             </div>
-            <div data-role="footer" class="ui-bar">
-                <a href="" data-role="button" style="float:left" class="ui-link ui-btn ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
-                <a href="" data-role="button" style="float:right" class="ui-link ui-btn ui-btn-a ui-icon-check ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-last-child ui-btn-icon-right"></a>
-            </div>
-        </div>
+        
+            <div style="height: 100vh; background-color:#828282"></div>
 
-        <div id="transactions" data-role="page">
-            <div data-role="header" class="ui-bar">
-                <a href="" data-role="button" style="float:left" class="ui-link ui-btn ui-btn-a ui-icon-user ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
-                <a href="" data-role="button" style="float:right" class="ui-link ui-btn ui-btn-a ui-icon-search ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
+            <!--<div class="page" id="transactions" data-role="page">
+                <div data-role="header" class="ui-bar">
+                    <a href="" data-role="button" style="float:left" class="ui-link ui-btn ui-btn-a ui-icon-user ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
+                    <a href="" data-role="button" style="float:right" class="ui-link ui-btn ui-btn-a ui-icon-search ui-btn-icon-notext ui-btn-inline ui-shadow ui-corner-all ui-btn-icon-left"></a>
+                </div>
+                <div role="main" class="ui-content">
+                    <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                        <li data-role="list-divider">Dishes</li>
+                        <li>
+                            
+                        </li> 
+                        <li data-role="list-divider">Requests</li>
+                    </ul>
+                </div>
+                <div data-role="footer">
+                </div>
+            </div>-->
+            <div class="page" id="imagePage" data-role="page">
+                <div data-role="header" class="ui-bar">
+                    <h1 class="ui-title" role="heading" aria-level="1">Accept Picture</h1>
+                </div>
+                <div role="main" class="ui-content">
+                <img id="imageContainer" class="ui-grid-solo" src="" style="width:60px;height:60px;"/>
+                    <label for="title">What's your amazing dish?</label>
+                    <input id="foodTitle" type="text" name="title" size="20"/>
+                    <div data-role="fieldcontain">
+                        <label for="textarea">Preferred pickup time</label>
+                        <textarea name="textarea" id="description"></textarea>
+                    </div>
+                    <a href="#main-page" data-role="button" style="float:left" class="btn-round btn-dislike "><img src="images/close.png"></a>
+                    <div class="eaternity"><p>CO2 calculated by</p><img src="images/eaternity.png" style="width:126px"></div>
+                    <a href="" data-role="button" style="float:right" id="uploadImage" class="btn-round btn-like"><img src="images/checked.png"></a>
+                </div>
+                <div data-role="footer">
+                    
+                </div>
             </div>
-            <div role="main" class="ui-content">
-                <ul data-role="listview" data-inset="true" data-divider-theme="a">
-                    <li data-role="list-divider">Dishes</li>
-                    <li>
-                        
-                    </li> 
-                    <li data-role="list-divider">Requests</li>
-                </ul>
+
+            <div class="page" id="listPage" data-role="page">
+                <div data-role="header" class="ui-bar">
+                 <div data-role="navbar">
+                    <ul>
+                        <li><a href="" id="cameraButton2" data-role="button"  style="float:left" class="btn-round "><img src="images/camera.png"/></a></li>
+                    </ul>
+                </div>
+                </div>
+                <!--<div data-role="header" class="ui-bar">
+                </div>-->
+                <div role="main" class="ui-content">
+                    <ul id="requestList" class="shadow"data-role="listview" data-inset="true" data-divider-theme="a">
+                    </ul>
+                </div>
+                <div data-role="footer">
+                </div>
             </div>
-            <div data-role="footer">
+
+        <script id="post-template" type="text/x-handlebars-template">
+            <div class="post-container">
+                <div class="points">{{rewards}}<span style="font-size:14px;display: block;text-align: center;">CO2</span></div>
+                <div class="post-image post-image-selected" id="postImage" style="background:url('{{image}}');background-size: cover"></div>
+                <div class="post-text post-text-selected">
+                    <h1>{{title}}</h1>
+                    <h3>{{author}}</h3>
+                    <p>{{description}}</p>
+                    <input type="hidden" id="postID" value="{{id}}"/>
+                </div>
             </div>
-        </div>
+        </script>
+        <script id="post-footer-template" type="text/x-handlebars-template">
+            <a href="" id="dislikeButton" data-role="button" style="float:left" class="btn-round btn-dislike "><img src="images/dislike.png"></a>
+            <a href="" data-role="button" style="display:inline-block" class="btn-user ">
+                <!--<img style="float:left" src="images/user.png">-->
+                <div style="float:left" class="btn-user-text">
+                    <p style="font-size: 16px;font-weight: 600;margin-bottom: 3px;">{{name}}</p>
+                    <p>{{points}} CO2 Points</p>
+                </div>
+            </a>
+            <a href="" id="likeButton" data-role="button" style="float:right" class="btn-round btn-like "><img src="images/like.png"></a>
+        </script>
+
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-mobile.js"></script>
+        <script type="text/javascript" src="js/handlebars.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
